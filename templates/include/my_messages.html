@@ -1,0 +1,16 @@
+{% load tag_shop %}
+{% if messages %}
+<div class="container">
+  {% for message in messages %}
+    <div class="alert {{message.tags|get_class}} alert-dismissible fade show" role="alert">
+      <strong>{{message}}</strong>
+      {% comment "For test" %}
+      <p>{{message.tags}} ----- {{message.tags|capfirst}}</p>
+      {% endcomment %}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  {% endfor %}
+</div>
+{% endif %}

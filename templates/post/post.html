@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-title">
+        {{post.title}}
+
+      </div>
+      <div class="card-body">
+
+        {{post.text}}
+      </div>
+      <div class="add-comment">
+        <a href="{% url 'add_comment' id=post.id %}">Добавить комментарий</a>
+      </div>
+      <div class="comment">
+        {% for comment in post.set__post_id%}
+        {% endfor %}
+      </div>
+      <div class="card-footer">
+        <p>  {{post.auhtor}}</p>
+  {{post.pub_date}}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="navbar">
+  {% include 'include/logout.html'%}
+</div>
+<div class="container">
+{% for post in posts %}
+  <div class="card mt-3">
+    <div class="card-body">
+      <h4 class="card-title">{{post.title}}</h4>
+      <p class="card-text">
+      {{post.text}}
+      </p>
+    </div>
+
+  <div class="card-footer">
+    <a href="{% url 'my_like' id=post.id%}" class='btn btn-info' id='like'>Like</a>
+    <p id='like-total'>{{post.total_like}}</p>
+    <a href="{% url 'post' id=post.id %}" class="card-link">Read more</a>
+  </div>
+  </div>
+  {%endfor%}
+
+</div>
+
+{% endblock %}
